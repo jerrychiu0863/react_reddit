@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+.reddit { 
+    width: 800px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0, .18);
+}
+
+.reddit-item {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.reddit-item:last-child {
+    border-bottom: none;
+}
+
+.reddit-count {
+    display: flex;
+    flex-direction: column;
+}
+
+.reddit-image img {
+    width: 80px;
+    height: 80px;
+}
+
+.reddit-content {
+    width: 600px;
+}
+
+.reddit-button {
+    display: inline-flex;
+
+}
+
+.reddit-button p {
+    margin-right: 10px;
+}
