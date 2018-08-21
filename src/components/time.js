@@ -6,7 +6,7 @@ const Time = ({ time }) => {
     const timeString = moment(time).fromNow();
     
     return(
-        <span>
+        <span className="reddit-content-time">
             {timeString}
         </span>
     );

@@ -5,7 +5,7 @@ import Count from './count';
 import Button from './button';
 
 
-const List = ({ reddits, onHandleAddCount, onHandleMinusCount }) => {
+const List = ({ reddits, onHandleAddCount, onHandleMinusCount}) => {
     return(
         <div>
             <ul className="reddit">
@@ -13,12 +13,25 @@ const List = ({ reddits, onHandleAddCount, onHandleMinusCount }) => {
 
                     <li key={reddit.id} className="reddit-listitem">
                         <div className="reddit-count">
-                            <Button onClick={() => onHandleAddCount(reddit.id)}>Like</Button>
-                            <Count reddit={reddit} />
-                            <Button onClick={() => onHandleMinusCount(reddit.id)}>Dislike</Button>
+                            <Button 
+                                className={'reddit-vote-btn'}
+                                onClick={() => onHandleAddCount(reddit.id)}>
+                                <i className="fas fa-arrow-up"></i>
+                            </Button>
+                            <Count 
+                                reddit={reddit} 
+                                className={'reddit-count-num'}
+                            />
+                            <Button 
+                                className={'reddit-vote-btn'}
+                                onClick={() => onHandleMinusCount(reddit.id)}><i className="fas fa-arrow-down"></i>
+                            </Button>
                         </div>
                         <Image reddit={reddit} />
-                        <Content reddit={reddit} />
+                        <Content 
+                            reddit={reddit}
+                            comment={reddit.comment}
+                        />
                     </li>
                  )}
             </ul>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Count = ({reddit}) => {
+const Count = ({reddit, className}) => {
     return(
-        <span>
+        <span className={className}>
             {reddit.likeCount}
         </span>
     );
