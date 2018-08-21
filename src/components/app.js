@@ -15,28 +15,40 @@ class App extends Component {
       });
   }
 
-  onHandleClickPlus = redditId => {
+  onHandleAddCount = redditId => {
       const updateReddits = this.state.reddits.map( reddit => {
           if(reddit.id === redditId) {
               return Object.assign({}, reddit, { likeCount: reddit.likeCount + 1})
           } else {
-              return reddit
+              return reddit;
           }
       });
-      console.log(`clicked ${redditId}`);
+      console.log(updateReddits);
       this.setState({reddits: updateReddits})
   }
   
+  onHandleMinusCount = redditId => {
+      const updateReddits = this.state.reddits.map( reddit => {
+          if(reddit.id === redditId && reddit.likeCount !== 0) {
+              return Object.assign({}, reddit, { likeCount: reddit.likeCount - 1})
+          } else {
+              return reddit;
+          }
+      });
+      console.log(updateReddits);
+      this.setState({reddits: updateReddits})
+  }
 
   render() {
     
     let {reddits} = this.state;
-      console.log({reddits})
+      //console.log({reddits})
     return (
       <div>
         <List 
             reddits={reddits}
-            onHandleAddCount={this.onHandleClickPlus}
+            onHandleAddCount={this.onHandleAddCount}
+            onHandleMinusCount={this.onHandleMinusCount}
         />
       </div>
     );

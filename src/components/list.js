@@ -2,9 +2,10 @@ import React from 'react';
 import Image from './image';
 import Content from './content';
 import Count from './count';
+import Button from './button';
 
 
-const List = ({ reddits, onHandleAddCount }) => {
+const List = ({ reddits, onHandleAddCount, onHandleMinusCount }) => {
     return(
         <div>
             <ul className="reddit">
@@ -12,9 +13,9 @@ const List = ({ reddits, onHandleAddCount }) => {
 
                     <li key={reddit.id} className="reddit-listitem">
                         <div className="reddit-count">
-                            <button onClick={() => onHandleAddCount(reddit.id)}>up</button>
+                            <Button onClick={() => onHandleAddCount(reddit.id)}>Like</Button>
                             <Count reddit={reddit} />
-                            <button>down</button>
+                            <Button onClick={() => onHandleMinusCount(reddit.id)}>Dislike</Button>
                         </div>
                         <Image reddit={reddit} />
                         <Content reddit={reddit} />
