@@ -14,20 +14,21 @@
     box-shadow: 0 2px 4px rgba(0,0,0, .18);
 }
 
-.reddit-item {
+.reddit-listitem {
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
     border-bottom: 1px solid #ccc;
 }
 
-.reddit-item:last-child {
+.reddit-listitem:last-child {
     border-bottom: none;
 }
 
 .reddit-count {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .reddit-image img {

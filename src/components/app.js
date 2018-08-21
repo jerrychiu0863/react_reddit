@@ -6,21 +6,37 @@ import List from './list';
 
 class App extends Component {
   state = {
-      count: reddits.map( reddit => reddit.likeCount)
+      reddits: []
   };
 
-  onHandleAddCount = id => {
-      this.setState({count: reddits.map( reddit => reddit.likeCount)[id] ++ })
+  componentDidMount() {
+      this.setState({
+          reddits
+      });
   }
 
+  onHandleClickPlus = redditId => {
+      const updateReddits = this.state.reddits.map( reddit => {
+          if(reddit.id === redditId) {
+              return Object.assign({}, reddit, { likeCount: reddit.likeCount + 1})
+          } else {
+              return reddit
+          }
+      });
+      console.log(`clicked ${redditId}`);
+      this.setState({reddits: updateReddits})
+  }
+  
+
   render() {
-    console.log(this.state.count)
+    
+    let {reddits} = this.state;
+      console.log({reddits})
     return (
       <div>
         <List 
-            reddits={reddits} 
-            onHandleAddCount={() => this.onHandleAddCount(1)}
-            count={this.state.count}
+            reddits={reddits}
+            onHandleAddCount={this.onHandleClickPlus}
         />
       </div>
     );
