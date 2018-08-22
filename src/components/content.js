@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 const commentCondition = (comment) => {
     if(comment > 1 ) {
         return <span>{comment} comments</span>;
-    } else {
+    } else if (comment === 1) {
         return <span>{comment} comment</span>;
+    } else {
+        return <span>comment</span>;
     }
 }
 
