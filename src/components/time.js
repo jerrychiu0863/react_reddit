@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 const Time = ({ time }) => {
     
@@ -10,6 +11,10 @@ const Time = ({ time }) => {
             {timeString}
         </span>
     );
+}
+
+Time.propTypes = {
+    time: PropTypes.string.isRequired
 }
 
 export default Time;

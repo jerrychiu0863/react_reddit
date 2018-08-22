@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 import Image from "./image";
 import Content from "./content";
 import Count from "./count";
@@ -48,5 +50,12 @@ const List = ({
     </div>
   );
 };
+
+List.propTypes = {
+    reddits: PropTypes.array.isRequired,
+    onHandleAddCount: PropTypes.func.isRequired,
+    onHandleMinusCount: PropTypes.func.isRequired,
+    sortByLikeCount: PropTypes.func.isRequired
+}
 
 export default List;

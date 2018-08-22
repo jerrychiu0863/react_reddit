@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Count = ({reddit, className}) => {
     return(
@@ -7,6 +8,11 @@ const Count = ({reddit, className}) => {
         </span>
     );
     
+}
+
+Count.propTypes = {
+    reddit: PropTypes.object.isRequired,
+    className: PropTypes.string
 }
 
 export default Count;
